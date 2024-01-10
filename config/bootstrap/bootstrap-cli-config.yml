@@ -67,7 +67,12 @@ bootstrap:
               - cdf-group: cdf:all:read
                 idp-source-id: 84908ad6-142c-4ebf-9174-080395ecfdc5 # for the AAD Group to be matched to cdf-group
                 idp-source-name: bootcamp-33-test-all-read # i.e. bootcamp-01-test-all-read
-
+              - cdf-group: cdf:uc:001:oee:owner
+                idp-source-id: 52537430-8ac5-4beb-9998-80a243550fd7 # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-33-test-uc-001-oee-owner # i.e. bootcamp-01-test-all-owner
+              - cdf-group: cdf:uc:001:oee:read
+                idp-source-id: 21067f83-4afb-4920-bf47-c5d52fb63b2c # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-33-test-uc-001-oee-read # i.e. bootcamp-01-test-all-read
         - cdf-project: cdf-bootcamp-33-prod
           mappings:
               - cdf-group: cdf:root
@@ -79,12 +84,17 @@ bootstrap:
               - cdf-group: cdf:all:read
                 idp-source-id: 475180db-f5ff-4b7a-9faf-d61edb41c43f # for the AAD Group to be matched to cdf-group
                 idp-source-name: bootcamp-33-prod-all-read # i.e. bootcamp-01-test-all-read
-
+              - cdf-group: cdf:uc:001:oee:owner
+                idp-source-id: a354d984-f843-4ff9-8e4d-c1edfd380706  # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-33-prod-uc-001-oee-owner # i.e. bootcamp-01-test-all-owner
+              - cdf-group: cdf:uc:001:oee:read
+                idp-source-id: 6ccf7fbc-2ce9-4fe0-a022-871528361080 # for the AAD Group to be matched to cdf-group
+                idp-source-name: bootcamp-33-prod-uc-001-oee-read # i.e. bootcamp-01-test-all-read
 
     namespaces:
         # Typical config will have a namespace for data sources ("src") and a namespace for use cases ("uc")
         - ns-name: src
-          description: Data sources for the Ice Cream Factory # HINT
+          description: Data sources for the Ice Cream Factory
 
           # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
@@ -94,8 +104,6 @@ bootstrap:
                 description: Sources 002; from opcua
         - ns-name: uc
           description: Use cases representing the data/products
-
-      # Description names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
               - node-name: uc:001:oee
                 description: Use case 001 Over all Equipment effectiveness
@@ -103,8 +111,6 @@ bootstrap:
                     read:
                         - node-name: src:001:sap
                         - node-name: src:002:opcua
-        # HINT: Add another namespace below
-
 
 # de-facto standards for CDF CogniteClient and logger configuration.
 # Following the same parameter structure as the 'Cognite Python Extractor-Utilities'
